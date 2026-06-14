@@ -1,9 +1,14 @@
 Optical Module Test Station Simulator
 
-A C# application that simulates an automated optical module production test station. The system executes configurable test sequences, communicates with simulated test instruments, collects measurement data, validates results against predefined limits, and generates detailed test reports.
+A C# console application simulating an automated production test station for optical transceiver modules, modeled on the architecture used in real manufacturing test software for optical communications equipment.
+The application runs a configurable sequence of functional tests against simulated lab instruments (optical power meter, optical spectrum analyzer, tunable laser source), evaluates each measurement against product-specific pass/fail limits, and generates a structured CSV test report — mirroring the workflow of a real factory test station.
+Architecture highlights:
 
-The project is designed to reflect the architecture of real-world manufacturing and validation software used in optical communications environments. Instrument communication is abstracted through interfaces, allowing simulated devices to be easily replaced with real hardware integrations such as VISA/SCPI-controlled instruments.
+Instrument communication is abstracted behind interfaces (IInstrument), so simulated devices can be swapped for real VISA/SCPI-controlled hardware without changing test logic
+Test limits and product configuration are externalized to JSON, supporting multiple products across NPI to end-of-life
+A test sequencer runs steps in order, with critical-failure handling that aborts and skips remaining steps — matching real production behavior
+Each test step is an independent, swappable unit (ITestStep), following common test automation design patterns
 
-Key features include configurable test workflows, automated pass/fail evaluation, product-specific configurations, structured result logging, and a modular architecture that follows common test automation and production engineering practices.
+Tech stack: C# / .NET, JSON configuration, CSV reporting
 
-Key note: This project is made entirely by me (gg300) and it's just a practice experiment meant to simulate a real world scenario.
+Built as a self-directed learning project to explore manufacturing test automation concepts and C# OOP design patterns.
