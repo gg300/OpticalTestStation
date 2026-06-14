@@ -1,0 +1,11 @@
+{
+  "ProductId": "OPT-XCVR-100G",
+  "Limits": {
+    "MinPower": -8.0,
+    "MaxPower": -3.0,
+    "TargetWavelength": 1550.00,
+    "WavelengthTolerance": 0.10,
+    "MinOsnr": 30.0,
+    "MaxBiasCurrent": 80.0
+  }
+}
